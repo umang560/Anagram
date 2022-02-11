@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+class AnagramProgram {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter first String");
+        String X =sc.next();
+        System.out.println("Enter Second String");
+        String Y=sc.next();
+        int m=X.length();
+        int n=Y.length();
+        boolean isAnagram=false;
+        boolean visited[]=new boolean[n];
+        if (m==n){
+            for (int i=0;i<m;i++){
+                char c= X.charAt(i);
+                isAnagram=false;
+                    for (int j=0;j<n;j++){
+                        if (Y.charAt(j)==c && !visited[j]){
+                            isAnagram=true;
+                            visited[j]=true;
+                            break;
+                    }
+                }
+                    if (!isAnagram){
+                        break;
+                    }
+            }if (isAnagram){
+                System.out.println("Anagram");
+            }
+            else {
+                System.out.println("Not anagram");
+            }
+        }
+    }
+}
